@@ -1,0 +1,14 @@
+{
+  "dependencies": [
+    {
+      "name": "commons-io",
+      "usage": "",
+      "security": false,
+      "encryption": false,
+      "stig": "",
+      "note": "",
+      "artifact_url": "",
+      "category": ""
+    }
+  ]
+}
