@@ -46,6 +46,9 @@ public class ReportTask extends DefaultTask {
 
   @TaskAction
   public void reportDependencies() {
+    System.out.println(System.getProperty("catName"));
+    System.out.println(System.getProperty("catAge"));
+
     populateModel();
     assignSourceUrl();
     generateReport();

@@ -6,6 +6,7 @@ import org.gradle.testkit.runner.GradleRunner
 import org.junit.Rule
 import org.junit.rules.TemporaryFolder
 
+import spock.lang.IgnoreRest
 import spock.lang.Specification
 
 /**
@@ -20,6 +21,7 @@ class ReportPluginFunctionalTest extends Specification {
     buildFile = testProjectDir.newFile('build.gradle')
   }
 
+  @IgnoreRest
   def "can call report task without extension declared"() {
     given:
     testProjectDir.newFile('foss_metadata.json')
@@ -35,6 +37,7 @@ class ReportPluginFunctionalTest extends Specification {
         .withProjectDir(testProjectDir.root)
         .withArguments('report')
         .withPluginClasspath()
+        .forwardOutput()
         .build()
 
     then:

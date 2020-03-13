@@ -52,7 +52,7 @@ task integrationTest(type: Test) {
     group = 'verification'
     testClassesDirs = sourceSets.integrationTest.output.classesDirs
     classpath = sourceSets.integrationTest.runtimeClasspath
-    mustRunAfter test
+    shouldRunAfter test
 }
 
 task functionalTest(type: Test) {
@@ -60,7 +60,10 @@ task functionalTest(type: Test) {
     group = 'verification'
     testClassesDirs = sourceSets.functionalTest.output.classesDirs
     classpath = sourceSets.functionalTest.runtimeClasspath
-    mustRunAfter test
+    shouldRunAfter test
+
+    systemProperty 'catName', findProperty('catName')
+    systemProperty 'catAge', findProperty('catAge')
 }
 
 test {
